@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.6'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'kr.co.bizframe.boot.nio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	implementation group: 'io.netty', name: 'netty-all', version: '4.1.92.Final'
+	implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+	
+	implementation 'com.google.code.gson:gson:2.9.0'
+	implementation 'org.slf4j:jcl-over-slf4j' 
+	implementation 'ch.qos.logback:logback-classic' 
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

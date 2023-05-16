@@ -1,0 +1,11 @@
+server:
+  port: 11901
+
+  
+netty:
+  socket:
+    port: 10993
+ 
+ 
+logging:
+  config: classpath:logback-spring.xml 
